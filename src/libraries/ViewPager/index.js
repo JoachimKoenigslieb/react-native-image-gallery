@@ -2,13 +2,13 @@ import React, { PureComponent } from 'react';
 import {
     View,
     FlatList,
-    ViewPropTypes,
     InteractionManager,
     Dimensions
 } from 'react-native';
 import PropTypes from 'prop-types';
 import Scroller from '../Scroller';
 import { createResponder } from '../GestureResponder';
+import ViewPropTypes from 'deprecated-react-native-prop-types';
 
 const MIN_FLING_VELOCITY = 0.5;
 
@@ -108,7 +108,7 @@ export default class ViewPager extends PureComponent {
 
         const finalX = this.getScrollOffsetOfPage(page);
         this.scroller.startScroll(this.scroller.getCurrX(), 0, finalX - this.scroller.getCurrX(), 0, 0);
-        
+
         requestAnimationFrame(() => {
             // this is here to work around a bug in FlatList, as discussed here
             // https://github.com/facebook/react-native/issues/1831
@@ -330,7 +330,7 @@ export default class ViewPager extends PureComponent {
                   // to use the buggy 'getItemLayout' prop. See
                   // https://github.com/facebook/react-native/issues/15734#issuecomment-330616697 and
                   // https://github.com/facebook/react-native/issues/14945#issuecomment-354651271
-                  contentOffset = {{x: this.getScrollOffsetOfPage(parseInt(this.props.initialPage)), y:0}}
+                  contentOffset={{x: this.getScrollOffsetOfPage(parseInt(this.props.initialPage)), y: 0}}
               />
             </View>
         );
